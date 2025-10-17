@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+  
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>One Timer</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Minecraft-like pixel font (Press Start 2P as close free alternative) -->  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app" role="application" aria-label="Minecraft-style timer">
+    
+    <header>
+      <div class="logo"><span>OT</span></div>
+      <div>
+        <h1>OneTimer</h1>
+        <p class="lead">Countdown, Count-up, And Pomodoro</p>
+      </div>
+    </header>
+    
+    <section class="main">
+      <div class="display" id="timeDisplay" aria-live="polite">00:00:00</div>
+      <div class="mode" id="modeLabel">Mode: Countdown</div>
+      
+      <div class="controls">
+        <button id="startBtn" class="primary">START</button>
+        <button id="pauseBtn">PAUSE</button>
+        <button id="lapBtn">LAP</button>
+        <button id="resetBtn" class="warn">RESET</button>
+        <button id="fullscreenBtn">FULLSCREEN</button>
+      </div>
+      
+      <div style="width:100%;max-width:720px;margin-top:8px;">
+        <div class="progress-wrap">
+          <div id="progress" class="progress"></div></div>
+      </div>
+    </section>
+    
+    <aside class="sidebar">
+      <div class="field">
+        <label for="hours">Jam</label>
+        <input id="hours" type="number" min="0" max="999" value="0">
+        <label for="minutes">Menit</label>
+        <input id="minutes" type="number" min="0" max="59" value="1">
+        <label for="seconds">Detik</label>
+        <input id="seconds" type="number" min="0" max="59" value="0">
+      </div>
+      
+      <div class="field">
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="countdown">Countdown</option>
+          <option value="countup">Count-up</option>
+          <option value="pomodoro">Pomodoro (25/5)</option>
+        </select>
+      </div>
+      
+      <div class="field">
+        <label>Presets</label>
+      <div class="presets">
+        <button class="preset" data-h="0" data-m="1" data-s="0">1m</button>
+        <button class="preset" data-h="0" data-m="5" data-s="0">5m</button>
+        <button class="preset" data-h="0" data-m="10" data-s="0">10m</button>
+        <button class="preset" data-h="0" data-m="25" data-s="0">25m</button>
+      </div>
+      </div>
+      
+      <div class="field">
+        <label for="volume">Volume</label>
+        <input id="volume" type="range" min="0" max="1" step="0.01" value="0.9">
+      </div>
+      
+      <div class="field">
+        <label for="notify">Notifikasi</label>
+        <select id="notify">
+          <option value="on">On</option>
+          <option value="off">Off</option>
+        </select>
+      </div>
+      
+      <div>
+        <div class="tiny">Lap</div>
+        <div class="laps" id="laps"></div>
+      </div>
+    </aside>
+    
+    <footer class="app-foot">
+      <div class="tiny">Made by SNI DevHub</div>
+    </footer>
+    
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

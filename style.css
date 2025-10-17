@@ -1,0 +1,77 @@
+    :root{
+      --bg:#0b1220; /* dark navy */
+      --panel:#111827;
+      --accent:#33cc66; /* Minecraft green-ish */
+      --muted:#9aa7b2;
+      --glass: rgba(255,255,255,0.04);
+      --pixel: 4px; /* for pixel borders */
+      --font: 'Press Start 2P', monospace;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg),#051018 80%);
+      color:#e6eef6;
+      font-family:var(--font);
+      -webkit-font-smoothing:antialiased;
+      display:flex;align-items:center;justify-content:center;padding:20px;
+    }
+
+    /* Container */
+    .app{
+      width:100%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:calc(var(--pixel)) solid rgba(0,0,0,0.6);
+      box-shadow: 0 12px 40px rgba(2,6,23,0.7);
+      padding:20px;border-radius:12px;display:grid;grid-template-columns:1fr 380px;gap:18px;
+    }
+
+    header{grid-column:1/3;display:flex;align-items:center;gap:16px}
+    .logo{width:62px;height:62px;background:linear-gradient(90deg,#68e07e,#0fb3a3);display:flex;align-items:center;justify-content:center;border-radius:6px;border:4px solid rgba(0,0,0,0.5);box-shadow:inset 0 -6px 0 rgba(0,0,0,0.15)}
+    .logo span{font-size:18px;transform:translateY(-2px)}
+    h1{font-size:14px;margin:0}
+    p.lead{margin:0;color:var(--muted);font-size:10px}
+
+    /* Left: main timer */
+    .main{
+      padding:18px;background:var(--glass);border-radius:8px;border:4px solid rgba(0,0,0,0.35);min-height:320px;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center
+    }
+    .display{
+      font-size:44px;letter-spacing:2px;padding:16px 22px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));border-radius:8px;border:6px solid rgba(0,0,0,0.5);min-width:320px;text-align:center
+    }
+    .mode{font-size:11px;color:var(--muted);margin-top:-6px}
+
+    .controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+    button{font-family:var(--font);font-size:11px;padding:10px 14px;border-radius:6px;border:4px solid rgba(0,0,0,0.45);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));cursor:pointer}
+    button.primary{background:linear-gradient(180deg,var(--accent),#0faa56);color:#03210f;border-color:rgba(0,0,0,0.6)}
+    button.warn{background:linear-gradient(180deg,#ff9f1c,#ff7a00);color:#1e0b00}
+    button:active{transform:translateY(1px)}
+
+    /* Right column: settings & laps */
+    .sidebar{padding:14px;background:linear-gradient(180deg, rgba(0,0,0,0.08), rgba(255,255,255,0.01));border-radius:8px;border:4px solid rgba(0,0,0,0.35);display:flex;flex-direction:column;gap:12px}
+
+    .field{display:flex;gap:8px;align-items:center}
+    .field label{font-size:10px;color:var(--muted);width:110px}
+    .field input[type=number]{width:80px;padding:8px;border-radius:6px;border:3px solid rgba(0,0,0,0.4);background:transparent;color:inherit;font-family:var(--font)}
+    .field select{padding:8px;border-radius:6px;border:3px solid rgba(0,0,0,0.4);background:transparent;color:inherit;font-family:var(--font)}
+
+    .presets{display:flex;gap:8px;flex-wrap:wrap}
+    .preset{padding:8px;border-radius:6px;border:3px solid rgba(0,0,0,0.4);min-width:80px;text-align:center}
+
+    .progress-wrap{height:18px;background:rgba(255,255,255,0.03);border-radius:8px;overflow:hidden;border:3px solid rgba(0,0,0,0.35)}
+    .progress{height:100%;width:0%;background:linear-gradient(90deg,#3ff07f,#24b37a)}
+
+    .laps{max-height:180px;overflow:auto;padding:6px;background:rgba(0,0,0,0.04);border-radius:6px;border:3px solid rgba(0,0,0,0.25)}
+    .lap{display:flex;justify-content:space-between;padding:6px 8px;border-bottom:2px dashed rgba(255,255,255,0.02);font-size:12px}
+
+    footer.app-foot{grid-column:1/3;display:flex;justify-content:space-between;align-items:center;padding-top:8px}
+    .tiny{font-size:10px;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .app{grid-template-columns:1fr;}
+      header{flex-direction:column;align-items:flex-start}
+    }
+
+    /* Pixel effect: outline each element with 2px solid to mimic blocky look */
+    .pixel-outline{box-shadow: 0 0 0 4px rgba(0,0,0,0.35) inset}
